@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Anoop Simon</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme" title="Toggle theme"></button>
+    <!-- Optional: Add your real photo as avatar.jpg in the same folder -->
+    <!-- <img src="avatar.jpg" alt="Anoop Simon" class="avatar"> -->
+    <h1>
+      <span id="typed-name" aria-hidden="true"></span>
+      <span class="cursor" aria-hidden="true">|</span>
+      <span class="sr-only">Anoop Simon</span>
+    </h1>
+  <div class="subtitle">
+    <span id="subtitle-primary"></span><br>
+    <span id="subtitle-stack"></span><br>
+    <span id="subtitle-location"></span>
+  </div>
+    <nav id="nav-links" aria-label="Social links">
+      <!-- social links are rendered from config.json by script.js -->
+    </nav>
+    <div class="bio" id="bio"></div>
+    
+    <section id="ai-solutions" class="section ai-solutions" aria-labelledby="ai-solutions-title">
+      <h2 id="ai-solutions-title">AI solutions (hands-on)</h2>
+      <p class="ai-intro">Practical experience with the tools and integrations below:</p>
+      <ul id="ai-list" class="ai-list" aria-live="polite"></ul>
+    </section>
+  </div>
+</div>
+  <script src="script.js" defer></script>
+</body>
+</html>

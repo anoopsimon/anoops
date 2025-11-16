@@ -1,0 +1,22 @@
+{
+  "name": "Anoop Simon",
+  "subtitle": "Test Solutions Architect — uses AI to empower solutions",
+  "stack": "Go | Python | TypeScript | Java | JavaScript | .NET",
+  "location": "Melbourne, Australia",
+  "bio": "I build frameworks to be test frameworks and create tools to make testing better.",
+  "ai_solutions": [
+    "Claude Code",
+    "Gemini CLI",
+    "Amazon Q",
+    "Microsoft Copilot",
+    "Google Firebase Studio",
+    "API-based AI integrations using OpenAI APIs"
+  ]
+  ,
+  "socials": {
+    "github": "https://github.com/anoopsimon",
+    "linkedin": "https://www.linkedin.com/in/anoop-simon/",
+    "email": "anoopsimon@gmail.com",
+    "blog": "/blog"
+  }
+}
