@@ -50,20 +50,66 @@ document.addEventListener('DOMContentLoaded', () => {
       const bioEl = document.getElementById('bio');
 
       if(subtitlePrimary) subtitlePrimary.textContent = cfg.subtitle || '';
-      if(subtitleStack) subtitleStack.textContent = cfg.stack || '';
-      if(subtitleLocation) subtitleLocation.textContent = cfg.location || '';
-      if(bioEl) bioEl.textContent = cfg.bio || '';
-      
-      // Render AI solutions list if present
-      const aiList = document.getElementById('ai-list');
-      if(aiList && Array.isArray(cfg.ai_solutions)){
-        cfg.ai_solutions.forEach(item => {
-          const li = document.createElement('li');
-          li.className = 'ai-item';
-          li.textContent = item;
-          aiList.appendChild(li);
-        });
+      // Render stack as badges with icons if array provided
+      if(subtitleStack){
+        subtitleStack.innerHTML = '';
+        if(Array.isArray(cfg.stack)){
+          const container = document.createElement('span');
+          container.className = 'stack-badges';
+          cfg.stack.forEach((item, i) => {
+            const badge = document.createElement('span');
+            badge.className = 'stack-badge';
+            const logo = document.createElement('span');
+            logo.className = 'logo';
+            // support SVG file paths or inline SVG strings or emoji/text
+            if(typeof item.icon === 'string'){
+              const v = item.icon.trim();
+              if(v.endsWith('.svg')){
+                const img = document.createElement('img');
+                img.src = v;
+                img.alt = item.name + ' logo';
+                img.className = 'logo';
+                badge.appendChild(img);
+              } else if(v.startsWith('<svg')){
+                logo.innerHTML = v;
+                badge.appendChild(logo);
+              } else {
+                logo.textContent = v;
+                badge.appendChild(logo);
+              }
+            }
+            const text = document.createElement('span');
+            text.className = 'stack-name';
+            text.textContent = item.name || '';
+            badge.appendChild(text);
+            container.appendChild(badge);
+            // add separator visually if you prefer pipes (optional)
+            if(i < cfg.stack.length - 1){
+              const sep = document.createElement('span');
+              sep.className = 'stack-sep';
+              sep.textContent = '';
+              // container.appendChild(sep);
+            }
+          });
+          subtitleStack.appendChild(container);
+        } else {
+          subtitleStack.textContent = cfg.stack || '';
+        }
       }
+      if(subtitleLocation){
+        subtitleLocation.innerHTML = '';
+        const loc = document.createElement('span');
+        loc.className = 'location';
+        const pin = document.createElement('span');
+        pin.className = 'pin';
+        pin.textContent = '📍';
+        const locText = document.createElement('span');
+        locText.textContent = cfg.location || '';
+        loc.appendChild(pin);
+        loc.appendChild(locText);
+        subtitleLocation.appendChild(loc);
+      }
+      if(bioEl) bioEl.textContent = cfg.bio || '';
 
       // Render social links (github, linkedin, email, blog) from config
       try{

@@ -150,39 +150,46 @@ nav a:hover {
   100% { opacity: 1; }
 }
 
-/* AI solutions section */
-.section {
-  margin-top: 22px;
-  text-align: left;
-}
-.ai-solutions h2{
-  margin: 0 0 6px 0;
-  font-size: 1rem;
-  color: var(--muted);
-}
-.ai-intro{
-  margin: 0 0 8px 0;
-  color: var(--bio);
-  font-size: 0.95rem;
-}
-.ai-list{
-  list-style: none;
-  padding: 0;
+/* (AI solutions section removed) */
+
+/* Stack badges (language logos) */
+.stack-badges{
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: wrap; /* allow badges to wrap onto multiple lines */
   gap: 8px;
+  align-items: center;
+  justify-content: center;
+  max-width: 100%;
 }
-.ai-item{
+.stack-badge{
   display: inline-flex;
   align-items: center;
-  padding: 6px 10px;
+  gap: 6px;
+  padding: 4px 8px;
   border-radius: 999px;
   background: rgba(0,0,0,0.04);
   color: var(--text);
   font-size: 0.9rem;
+  white-space: nowrap; /* keep icon and name on one badge line */
+  flex: 0 1 auto; /* allow badges to shrink if needed */
 }
-body.dark .ai-item{
-  background: rgba(255,255,255,0.04);
+body.dark .stack-badge{ background: rgba(255,255,255,0.04); }
+.stack-badge .logo{ font-size: 1rem; line-height:1; }
+.stack-badge img.logo{ width:18px; height:18px; display:inline-block; border-radius:4px; }
+.stack-badge .stack-name{ font-weight:600; }
+
+@media (max-width: 420px) {
+  .stack-badge{ padding: 3px 6px; font-size: 0.85rem; }
+  .stack-badge img.logo{ width:16px; height:16px; }
 }
+.stack-sep{ color: var(--muted); margin: 0 6px; }
+
+.location {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--muted);
+}
+.location .pin{ font-size: 0.95rem }
 
 
